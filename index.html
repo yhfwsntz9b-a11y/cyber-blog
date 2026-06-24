@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="赛博朋克风格个人知识博客 - AI、科技、社会学、心理学">
-  <title>CyberNote | 知识博客</title>
+  <meta name="description" content="CyberNote - 赛博朋克风格AI学习网站，图解Agent、RAG、LLM面试题">
+  <title>CyberNote | 图解AI面试题</title>
 
   <!-- 样式 -->
   <link rel="stylesheet" href="css/cyberpunk.css">
@@ -24,174 +24,127 @@
     </div>
     <div class="nav-links">
       <a href="index.html" class="nav-link active">首页</a>
-      <a href="category.html?cat=ai" class="nav-link">AI</a>
-      <a href="category.html?cat=tech" class="nav-link">科技</a>
-      <a href="category.html?cat=sociology" class="nav-link">社会学</a>
-      <a href="category.html?cat=psychology" class="nav-link">心理学</a>
-      <a href="chengdu.html" class="nav-link">成都专栏</a>
-      <a href="knowledge.html" class="nav-link">知识卡片</a>
+      <a href="ai/agent.html" class="nav-link">Agent</a>
+      <a href="ai/rag.html" class="nav-link">RAG</a>
+      <a href="ai/llm.html" class="nav-link">LLM基础</a>
+      <a href="ai/tools.html" class="nav-link">AI工具</a>
+      <a href="ai/knowledge.html" class="nav-link">知识卡片</a>
     </div>
   </nav>
 
   <!-- Hero区域 -->
   <section class="hero">
-    <h1 class="hero-title glitch" data-text="CyberNote">CyberNote</h1>
-    <p class="hero-subtitle">AI · 科技 · 社会学 · 心理学</p>
+    <h1 class="hero-title glitch" data-text="CyberNote">⚡ CyberNote</h1>
+    <p class="hero-subtitle">图解 Agent + RAG + LLM 面试题</p>
     <p class="hero-desc">
-      一个赛博朋克风格的知识博客，记录AI技术解读、科技前沿、社会学观察与心理学实用技巧。
-      <br>成都本地视角，让知识落地生根。
+      用成都火锅类比，通俗解读AI技术概念。让一部分人先跑赢AI面试💪
+      <br>点击卡片翻转，术语秒懂。
     </p>
 
     <div class="hero-tags">
-      <span class="cyber-tag ai">AI 人工智能</span>
-      <span class="cyber-tag tech">科技前沿</span>
-      <span class="cyber-tag sociology">社会学观察</span>
-      <span class="cyber-tag psychology">心理学技巧</span>
+      <span class="cyber-tag ai">🤖 Agent面试题</span>
+      <span class="cyber-tag tech">📚 RAG面试题</span>
+      <span class="cyber-tag sociology">🧠 LLM基础</span>
+      <span class="cyber-tag psychology">🛠️ AI工具</span>
     </div>
 
     <div class="hero-cta">
-      <a href="#timeline" class="cyber-btn">探索时间线</a>
-      <a href="knowledge.html" class="cyber-btn cyber-btn-pink">知识卡片</a>
+      <a href="ai/knowledge.html" class="cyber-btn cyber-btn-pink">🎴 知识卡片</a>
+      <a href="ai/agent.html" class="cyber-btn">🤖 Agent面试题</a>
     </div>
   </section>
 
-  <!-- 分类导航 -->
-  <div class="category-nav" id="categoryNav">
-    <button class="category-btn active" data-category="all">全部文章</button>
-    <button class="category-btn" data-category="ai">AI人工智能</button>
-    <button class="category-btn" data-category="tech">科技前沿</button>
-    <button class="category-btn" data-category="sociology">社会学观察</button>
-    <button class="category-btn" data-category="psychology">心理学技巧</button>
-  </div>
+  <!-- 必看系列 -->
+  <section style="padding: 60px 40px; max-width: 1200px; margin: 0 auto;">
+    <h2 class="neon-text" style="font-family: 'Orbitron', sans-serif; font-size: 28px; margin-bottom: 30px;">📚 必看系列</h2>
 
-  <!-- 时间线作品集 -->
-  <section class="timeline-section" id="timeline">
-    <div class="timeline-header">
-      <h2 class="neon-text">时间线作品集</h2>
-      <p style="color: var(--text-secondary);">按时间倒序展示创作历程</p>
-    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px;">
+      <a href="ai/agent.html" class="article-card purple" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag ai">🤖 Agent面试题</span>
+        </div>
+        <h3 class="article-title">《Agent面试题》</h3>
+        <p class="article-excerpt">涵盖Agent概念与架构、记忆机制、任务规划、多Agent协作、ReAct范式、幻觉规避等高频考点。</p>
+      </a>
 
-    <div class="timeline-container" id="timelineContainer">
-      <!-- 文章将通过JS动态加载 -->
-      <div class="loading" id="loading">
-        <div class="loading-bar"></div>
-        <div class="loading-bar"></div>
-        <div class="loading-bar"></div>
-        <div class="loading-bar"></div>
-        <div class="loading-bar"></div>
-      </div>
+      <a href="ai/rag.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">📚 RAG面试题</span>
+        </div>
+        <h3 class="article-title">《RAG面试题》</h3>
+        <p class="article-excerpt">涵盖RAG原理、文档切割、Embedding、向量数据库、检索优化、Query改写、幻觉规避等。</p>
+      </a>
+
+      <a href="ai/llm.html" class="article-card green" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag psychology">🧠 LLM基础</span>
+        </div>
+        <h3 class="article-title">《LLM基础面试题》</h3>
+        <p class="article-excerpt">涵盖Transformer架构、Attention机制、KV Cache、量化、Prompt工程、Temperature参数等。</p>
+      </a>
+
+      <a href="ai/knowledge.html" class="article-card" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag tech">🎴 知识卡片</span>
+        </div>
+        <h3 class="article-title">《AI知识卡片》</h3>
+        <p class="article-excerpt">20张翻转卡片，技术术语秒懂。点击正面看术语，翻转背面看通俗解读。</p>
+      </a>
     </div>
   </section>
 
-  <!-- AI知识卡片预览 -->
-  <section class="knowledge-section">
-    <div class="knowledge-header">
-      <h2 class="neon-text-pink">AI知识卡片</h2>
-      <p style="color: var(--text-secondary);">技术术语通俗解读 · 点击翻转查看详解</p>
+  <!-- 知识卡片预览 -->
+  <section class="knowledge-section" style="padding: 60px 40px;">
+    <div class="knowledge-header" style="text-align: center; margin-bottom: 40px;">
+      <h2 class="neon-text-pink" style="font-family: 'Orbitron', sans-serif;">🎴 知识卡片预览</h2>
+      <p style="color: var(--text-secondary);">点击翻转，术语秒懂</p>
     </div>
 
-    <div class="knowledge-grid">
+    <div class="knowledge-grid" style="max-width: 1200px; margin: 0 auto; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
       <div class="knowledge-card">
         <div class="knowledge-card-inner">
-          <div class="knowledge-card-front">
-            <div class="knowledge-icon">🤖</div>
-            <div class="knowledge-title">LLM 大语言模型</div>
-          </div>
-          <div class="knowledge-card-back">
-            <p class="knowledge-desc">
-              Large Language Model，像ChatGPT这样的AI，能理解和生成人类语言。
-              把它想象成一个读过亿万本书的"超级阅读者"，能回答问题、写文章、甚至写代码。
-            </p>
-          </div>
+          <div class="knowledge-card-front"><div class="knowledge-icon">🤖</div><div class="knowledge-title">Agent</div></div>
+          <div class="knowledge-card-back"><p class="knowledge-desc">智能代理。能"做事"的AI，像火锅店的智能服务员。</p></div>
         </div>
       </div>
-
       <div class="knowledge-card">
         <div class="knowledge-card-inner">
-          <div class="knowledge-card-front">
-            <div class="knowledge-icon">🎯</div>
-            <div class="knowledge-title">Fine-tuning 微调</div>
-          </div>
-          <div class="knowledge-card-back">
-            <p class="knowledge-desc">
-              就像给AI"上专业课"，在通用能力基础上，针对特定领域（如医疗、法律）进行额外训练，
-              让它在该领域表现更专业。
-            </p>
-          </div>
+          <div class="knowledge-card-front" style="border-color: var(--neon-pink);"><div class="knowledge-icon">⚡</div><div class="knowledge-title">RAG</div></div>
+          <div class="knowledge-card-back"><p class="knowledge-desc">检索增强生成。AI先"翻书"再回答，答案更准确。</p></div>
         </div>
       </div>
-
       <div class="knowledge-card">
         <div class="knowledge-card-inner">
-          <div class="knowledge-card-front">
-            <div class="knowledge-icon">⚡</div>
-            <div class="knowledge-title">RAG 检索增强生成</div>
-          </div>
-          <div class="knowledge-card-back">
-            <p class="knowledge-desc">
-              Retrieval-Augmented Generation，AI先去"查资料"，再回答问题。
-              像考试时允许翻书，答案更准确、更有依据。
-            </p>
-          </div>
+          <div class="knowledge-card-front" style="border-color: var(--neon-purple);"><div class="knowledge-icon">🧠</div><div class="knowledge-title">Transformer</div></div>
+          <div class="knowledge-card-back"><p class="knowledge-desc">AI的核心"大脑结构"，像同时关注锅里的肉和朋友的聊天。</p></div>
         </div>
       </div>
-
       <div class="knowledge-card">
         <div class="knowledge-card-inner">
-          <div class="knowledge-card-front">
-            <div class="knowledge-icon">🧠</div>
-            <div class="knowledge-title">Transformer架构</div>
-          </div>
-          <div class="knowledge-card-back">
-            <p class="knowledge-desc">
-              AI模型的核心"大脑结构"，通过"注意力机制"理解上下文关系。
-              想象读书时，你能同时关注这句话和前面的关键词，Transformer就是这样"理解"文本的。
-            </p>
-          </div>
+          <div class="knowledge-card-front" style="border-color: var(--neon-green);"><div class="knowledge-icon">👁️</div><div class="knowledge-title">Attention</div></div>
+          <div class="knowledge-card-back"><p class="knowledge-desc">注意力机制。让AI知道"重点看哪里"。</p></div>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="knowledge.html" class="cyber-btn cyber-btn-pink">查看全部知识卡片</a>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="ai/knowledge.html" class="cyber-btn cyber-btn-pink">查看全部20张卡片</a>
     </div>
   </section>
 
-  <!-- 成都本地专栏预览 -->
-  <section class="chengdu-section">
-    <div class="chengdu-header">
-      <h2 class="neon-text-pink">成都本地专栏</h2>
-      <p style="color: var(--text-secondary);">科技动态 · 社会观察 · 地域特色</p>
-    </div>
-
-    <div class="chengdu-grid">
-      <div class="chengdu-card">
-        <div class="chengdu-card-icon">🏢</div>
-        <h3>成都AI企业观察</h3>
-        <p>成都科技园区AI企业落地案例，从游戏AI到医疗影像，探索AI在成都的多元应用场景。</p>
-      </div>
-
-      <div class="chengdu-card">
-        <div class="chengdu-card-icon">🏘️</div>
-        <h3>社区治理实践</h3>
-        <p>成都老旧小区改造、智慧社区建设观察，数字化治理在成都社区的落地经验。</p>
-      </div>
-
-      <div class="chengdu-card">
-        <div class="chengdu-card-icon">🍜</div>
-        <h3>消费习惯洞察</h3>
-        <p>成都人消费习惯背后的社会学分析，从火锅文化到网红经济，解读成都消费密码。</p>
-      </div>
-
-      <div class="chengdu-card">
-        <div class="chengdu-card-icon">🧘</div>
-        <h3>年轻人心理画像</h3>
-        <p>成都年轻人心理健康观察，从"躺平"到"巴适"，解读成都青年的心理状态。</p>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="chengdu.html" class="cyber-btn">进入成都专栏</a>
+  <!-- 关于网站 -->
+  <section style="padding: 60px 40px; background: var(--bg-secondary);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h2 class="neon-text" style="font-family: 'Orbitron', sans-serif; margin-bottom: 30px;">💭 关于 CyberNote</h2>
+      <p style="color: var(--text-primary); font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+        这是一个赛博朋克风格的AI学习网站，用通俗语言解读AI技术概念。
+      </p>
+      <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.8;">
+        网站特色：
+        <br>• <strong>图解风格</strong>：用成都火锅类比，通俗解读Agent、RAG、LLM
+        <br>• <strong>翻转卡片</strong>：技术术语秒懂，正面术语背面解读
+        <br>• <strong>赛博朋克</strong>：霓虹特效、扫描线、故障动画
+      </p>
     </div>
   </section>
 
@@ -202,12 +155,12 @@
     </div>
     <div class="footer-links">
       <a href="index.html" class="footer-link">首页</a>
-      <a href="category.html?cat=ai" class="footer-link">AI专栏</a>
-      <a href="knowledge.html" class="footer-link">知识卡片</a>
-      <a href="chengdu.html" class="footer-link">成都专栏</a>
+      <a href="ai/agent.html" class="footer-link">Agent</a>
+      <a href="ai/rag.html" class="footer-link">RAG</a>
+      <a href="ai/knowledge.html" class="footer-link">知识卡片</a>
     </div>
     <p class="footer-copyright">
-      © 2024 CyberNote | 赛博朋克风格知识博客
+      © 2024 CyberNote | 图解AI面试题
     </p>
   </footer>
 

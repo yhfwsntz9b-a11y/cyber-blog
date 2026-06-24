@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG面试题 | CyberNote</title>
+  <link rel="stylesheet" href="../css/cyberpunk.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+  <div class="cyber-grid"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo"><a href="../index.html" class="glitch" data-text="CyberNote">CyberNote</a></div>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">首页</a>
+      <a href="agent.html" class="nav-link">Agent</a>
+      <a href="rag.html" class="nav-link active">RAG</a>
+      <a href="llm.html" class="nav-link">LLM基础</a>
+      <a href="tools.html" class="nav-link">AI工具</a>
+      <a href="knowledge.html" class="nav-link">知识卡片</a>
+    </div>
+  </nav>
+
+  <section style="padding: 120px 40px 60px;">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <h1 class="neon-text-pink" style="font-family: 'Orbitron', sans-serif; font-size: 42px;">📚 RAG 面试题</h1>
+      <p style="color: var(--text-secondary); font-size: 18px; margin-top: 16px;">
+        RAG = 检索增强生成，让AI学会"翻书"
+      </p>
+    </div>
+
+    <div class="articles-grid">
+      <a href="../posts/rag/what-is-rag.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">📚 RAG基础</span>
+          <span class="article-date">2024.06.24</span>
+        </div>
+        <h3 class="article-title">RAG是什么？考试时允许"翻书"</h3>
+        <p class="article-excerpt">传统大模型像"凭记忆考试"，RAG像"允许翻书的考试"——先查资料再回答。答案更准确、有依据、可追溯。</p>
+      </a>
+
+      <a href="../posts/rag/chunking.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">🔪 文档切割</span>
+          <span class="article-date">2024.06.23</span>
+        </div>
+        <h3 class="article-title">文档如何切割成小块？</h3>
+        <p class="article-excerpt">一本书塞不进AI，要先切成"小块"。怎么切？固定长度、语义切分、按章节？各有利弊。</p>
+      </a>
+
+      <a href="../posts/rag/embedding.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">🔢 Embedding</span>
+          <span class="article-date">2024.06.22</span>
+        </div>
+        <h3 class="article-title">Embedding：把文字变成数字坐标</h3>
+        <p class="article-excerpt">怎么让计算机理解"火锅"和"串串"很像？用Embedding把文字变成向量。"火锅"和"串串"在向量空间里距离很近。</p>
+      </a>
+
+      <a href="../posts/rag/vector-db.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">🗄️ 向量数据库</span>
+          <span class="article-date">2024.06.21</span>
+        </div>
+        <h3 class="article-title">向量数据库：RAG的"图书馆"</h3>
+        <p class="article-excerpt">Embedding后的文档存在哪里？向量数据库。它像一个"智能图书馆"，能根据语义相似度找到最相关的"书"。</p>
+      </a>
+
+      <a href="../posts/rag/retrieval.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">🔍 检索优化</span>
+          <span class="article-date">2024.06.20</span>
+        </div>
+        <h3 class="article-title">如何提高检索准确率？</h3>
+        <p class="article-excerpt">检索不准，RAG就答不好。怎么优化？Query改写、多路召回、重排序、Hybrid检索（关键词+语义）。</p>
+      </a>
+
+      <a href="../posts/rag/hallucination.html" class="article-card pink" style="text-decoration:none;">
+        <div class="article-meta">
+          <span class="cyber-tag sociology">⚠️ 幻觉规避</span>
+          <span class="article-date">2024.06.19</span>
+        </div>
+        <h3 class="article-title">RAG如何减少幻觉？</h3>
+        <p class="article-excerpt">RAG不是万能的，检索到的内容可能被"误解"。如何让AI"老老实实"回答，不胡编乱造？</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><span class="neon-text">CyberNote</span></div>
+    <p class="footer-copyright">© 2024 CyberNote</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
