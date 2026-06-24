@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI知识卡片 | CyberNote</title>
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+  <div class="cyber-grid"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo"><span class="glitch" data-text="CyberNote">CyberNote</span></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="category.html?cat=ai" class="nav-link">AI</a>
+      <a href="category.html?cat=tech" class="nav-link">科技</a>
+      <a href="category.html?cat=sociology" class="nav-link">社会学</a>
+      <a href="category.html?cat=psychology" class="nav-link">心理学</a>
+      <a href="chengdu.html" class="nav-link">成都专栏</a>
+      <a href="knowledge.html" class="nav-link active">知识卡片</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="padding-top: 150px; min-height: 50vh;">
+    <h1 class="hero-title neon-text-pink glitch" data-text="AI知识卡片">🧠 AI知识卡片</h1>
+    <p class="hero-subtitle">技术术语通俗解读 · 点击卡片翻转查看详解</p>
+    <p class="hero-desc">
+      把晦涩的AI技术概念，变成人人能懂的知识卡片。
+      <br>正面是术语，背面是通俗解读——像翻扑克牌一样学习AI。
+    </p>
+  </section>
+
+  <!-- 分类导航 -->
+  <div class="category-nav">
+    <button class="category-btn active" data-filter="all">全部卡片</button>
+    <button class="category-btn" data-filter="basic">基础概念</button>
+    <button class="category-btn" data-filter="model">模型架构</button>
+    <button class="category-btn" data-filter="training">训练优化</button>
+    <button class="category-btn" data-filter="application">应用落地</button>
+  </div>
+
+  <!-- 知识卡片网格 -->
+  <section class="knowledge-section" style="padding: 60px 40px;">
+    <div class="knowledge-grid" id="knowledgeGrid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+
+      <!-- 基础概念 -->
+      <div class="knowledge-card" data-filter="basic">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front">
+            <div class="knowledge-icon">🤖</div>
+            <div class="knowledge-title">LLM</div>
+            <div style="color: var(--text-muted); font-size: 12px;">Large Language Model</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              大语言模型。像ChatGPT这样的AI，能理解和生成人类语言。
+              把它想象成一个读过亿万本书的"超级阅读者"，能回答问题、写文章、甚至写代码。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="basic">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-pink);">
+            <div class="knowledge-icon">🎯</div>
+            <div class="knowledge-title">Fine-tuning</div>
+            <div style="color: var(--text-muted); font-size: 12px;">微调</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              就像给AI"上专业课"，在通用能力基础上，针对特定领域（如医疗、法律）进行额外训练，让它在该领域表现更专业。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 模型架构 -->
+      <div class="knowledge-card" data-filter="model">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-purple);">
+            <div class="knowledge-icon">🧠</div>
+            <div class="knowledge-title">Transformer</div>
+            <div style="color: var(--text-muted); font-size: 12px;">变换器架构</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              AI模型的核心"大脑结构"，通过"注意力机制"理解上下文关系。
+              想象读书时，你能同时关注这句话和前面的关键词，Transformer就是这样"理解"文本的。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="model">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-green);">
+            <div class="knowledge-icon">👁️</div>
+            <div class="knowledge-title">Attention</div>
+            <div style="color: var(--text-muted); font-size: 12px;">注意力机制</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              让AI知道"重点看哪里"的机制。就像你读句子时会注意到关键词，
+              Attention让模型自动找到文本中最重要的部分，决定信息如何流动。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 训练优化 -->
+      <div class="knowledge-card" data-filter="training">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front">
+            <div class="knowledge-icon">⚡</div>
+            <div class="knowledge-title">RAG</div>
+            <div style="color: var(--text-muted); font-size: 12px;">检索增强生成</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              Retrieval-Augmented Generation。AI先去"查资料"，再回答问题。
+              像考试时允许翻书，答案更准确、更有依据。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="training">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-pink);">
+            <div class="knowledge-icon">📊</div>
+            <div class="knowledge-title">Quantization</div>
+            <div style="color: var(--text-muted); font-size: 12px;">量化</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              把模型"瘦身"。从32位精度降到8位甚至4位，让大模型能在普通电脑上运行。
+              像把高清视频压缩成小文件，画质略有损失但能流畅播放。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="training">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-yellow);">
+            <div class="knowledge-icon">🔥</div>
+            <div class="knowledge-title">LoRA</div>
+            <div style="color: var(--text-muted); font-size: 12px;">低秩适配</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              一种高效的微调方法。不改动整个模型，只添加一小块"补丁"。
+              像给手机换壳而不是重装系统，节省99%的计算量。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 应用落地 -->
+      <div class="knowledge-card" data-filter="application">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-green);">
+            <div class="knowledge-icon">💬</div>
+            <div class="knowledge-title">Prompt</div>
+            <div style="color: var(--text-muted); font-size: 12px;">提示词</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              给AI的"指令"。如何提问才能得到想要的答案？
+              Prompt工程就是设计精准指令的艺术，像写代码一样和AI对话。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="application">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-cyan);">
+            <div class="knowledge-icon">🔄</div>
+            <div class="knowledge-title">Inference</div>
+            <div style="color: var(--text-muted); font-size: 12px;">推理</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              AI模型"运行"的过程。训练是学习，推理是应用。
+              像学生考试时运用学到的知识解题，模型推理就是生成答案的过程。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="application">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-purple);">
+            <div class="knowledge-icon">🌐</div>
+            <div class="knowledge-title">Embedding</div>
+            <div style="color: var(--text-muted); font-size: 12px;">嵌入向量</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              把文字变成"数字坐标"。让计算机理解词语之间的关系。
+              "猫"和"狗"在向量空间里距离很近，"猫"和"汽车"距离很远。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card" data-filter="application">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front" style="border-color: var(--neon-orange);">
+            <div class="knowledge-icon">📝</div>
+            <div class="knowledge-title">Context</div>
+            <div style="color: var(--text-muted); font-size: 12px;">上下文窗口</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              AI能"记住"的对话长度。Context Window越大，能参考的信息越多。
+              像手机的RAM容量，决定一次对话能承载多少信息。
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 使用提示 -->
+  <section style="padding: 40px; background: var(--bg-secondary);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <h3 class="neon-text" style="font-family: 'Orbitron', sans-serif;">💡 如何使用知识卡片</h3>
+      <p style="color: var(--text-secondary); margin: 20px 0; font-size: 16px;">
+        点击任意卡片，翻转查看术语的通俗解读。正面是技术术语名称，背面是"人人能懂"的解释。
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+        <span class="cyber-tag">👆 点击翻转</span>
+        <span class="cyber-tag ai">🧠 基础概念</span>
+        <span class="cyber-tag tech">🏗️ 模型架构</span>
+        <span class="cyber-tag sociology">🔥 训练优化</span>
+        <span class="cyber-tag psychology">🚀 应用落地</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><span class="neon-text">CyberNote</span></div>
+    <p class="footer-copyright">© 2024 CyberNote | AI知识卡片</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 分类筛选
+      const buttons = document.querySelectorAll('.category-btn[data-filter]');
+      const cards = document.querySelectorAll('.knowledge-card');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filter = this.dataset.filter;
+
+          buttons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          cards.forEach(card => {
+            if (filter === 'all' || card.dataset.filter === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

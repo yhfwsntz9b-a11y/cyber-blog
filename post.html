@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章详情 | CyberNote</title>
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Marked.js：Markdown渲染 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Prism.js：代码高亮 -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <div class="cyber-grid"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="glitch" data-text="CyberNote">CyberNote</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="category.html?cat=ai" class="nav-link">AI</a>
+      <a href="category.html?cat=tech" class="nav-link">科技</a>
+      <a href="category.html?cat=sociology" class="nav-link">社会学</a>
+      <a href="category.html?cat=psychology" class="nav-link">心理学</a>
+      <a href="chengdu.html" class="nav-link">成都专栏</a>
+      <a href="knowledge.html" class="nav-link">知识卡片</a>
+    </div>
+  </nav>
+
+  <!-- 文章内容 -->
+  <div class="post-container">
+    <a href="index.html" class="back-btn">← 返回首页</a>
+
+    <div class="post-header" id="postHeader">
+      <div id="postMeta" style="margin-bottom: 12px;"></div>
+      <h1 class="post-title" id="postTitle">加载中...</h1>
+      <div class="post-meta" id="postMetaBottom"></div>
+    </div>
+
+    <div class="post-content" id="postContent">
+      <div class="loading">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+      </div>
+    </div>
+
+    <!-- 相关文章推荐 -->
+    <div id="relatedArticles" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-cyan);">
+      <h3 class="neon-text" style="font-family: 'Orbitron', sans-serif; margin-bottom: 24px;">相关文章</h3>
+      <div id="relatedList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo"><span class="neon-text">CyberNote</span></div>
+    <p class="footer-copyright">© 2024 CyberNote | 赛博朋克风格知识博客</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const articleId = CyberNote.getUrlParam('id');
+      if (!articleId) {
+        document.getElementById('postTitle').textContent = '文章不存在';
+        document.getElementById('postContent').innerHTML = '<p>未找到指定文章。</p>';
+        return;
+      }
+
+      // 查找文章信息
+      const article = CyberNote.articlesDB.find(a => a.id === articleId);
+      if (!article) {
+        document.getElementById('postTitle').textContent = '文章不存在';
+        document.getElementById('postContent').innerHTML = '<p>未找到指定文章。</p>';
+        return;
+      }
+
+      // 设置页面信息
+      document.title = article.title + ' | CyberNote';
+      document.getElementById('postTitle').textContent = article.title;
+
+      const catConfig = CyberNote.categoryConfig[article.category];
+      document.getElementById('postMeta').innerHTML =
+        `<span class="cyber-tag ${article.category}">${catConfig.icon} ${catConfig.name}</span>`;
+      document.getElementById('postMetaBottom').innerHTML =
+        `<span>📅 ${CyberNote.formatDate(article.date)}</span>`;
+
+      // 加载Markdown文件
+      const markdownContent = await CyberNote.loadMarkdown(article.file);
+
+      if (markdownContent) {
+        // 配置 marked
+        marked.setOptions({
+          highlight: function(code, lang) {
+            if (Prism.languages[lang]) {
+              return Prism.highlight(code, Prism.languages[lang], lang);
+            }
+            return code;
+          },
+          breaks: true,
+          gfm: true
+        });
+
+        document.getElementById('postContent').innerHTML = marked.parse(markdownContent);
+
+        // 重新高亮代码块
+        Prism.highlightAll();
+      } else {
+        // Markdown文件不存在，展示摘要
+        document.getElementById('postContent').innerHTML = `
+          <p>${article.excerpt}</p>
+          <blockquote>
+            <p>💡 完整文章内容正在编写中，敬请期待...</p>
+          </blockquote>
+        `;
+      }
+
+      // 加载相关文章
+      loadRelatedArticles(article);
+    });
+
+    function loadRelatedArticles(currentArticle) {
+      const related = CyberNote.articlesDB
+        .filter(a => a.category === currentArticle.category && a.id !== currentArticle.id)
+        .slice(0, 3);
+
+      const container = document.getElementById('relatedList');
+
+      if (related.length === 0) {
+        document.getElementById('relatedArticles').style.display = 'none';
+        return;
+      }
+
+      related.forEach(article => {
+        const catConfig = CyberNote.categoryConfig[article.category];
+        const cardColor = article.category === 'ai' ? 'purple' :
+                          article.category === 'sociology' ? 'pink' :
+                          article.category === 'psychology' ? 'green' : '';
+
+        container.innerHTML += `
+          <a href="post.html?id=${article.id}" class="article-card ${cardColor}" style="text-decoration:none;">
+            <span class="cyber-tag ${article.category}" style="margin-bottom: 8px;">${catConfig.icon} ${catConfig.name}</span>
+            <h3 class="article-title" style="font-size: 15px;">${article.title}</h3>
+          </a>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>

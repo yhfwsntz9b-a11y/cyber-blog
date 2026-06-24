@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="赛博朋克风格个人知识博客 - AI、科技、社会学、心理学">
+  <title>CyberNote | 知识博客</title>
+
+  <!-- 样式 -->
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <!-- 网格背景 -->
+  <div class="cyber-grid"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="glitch" data-text="CyberNote">CyberNote</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">首页</a>
+      <a href="category.html?cat=ai" class="nav-link">AI</a>
+      <a href="category.html?cat=tech" class="nav-link">科技</a>
+      <a href="category.html?cat=sociology" class="nav-link">社会学</a>
+      <a href="category.html?cat=psychology" class="nav-link">心理学</a>
+      <a href="chengdu.html" class="nav-link">成都专栏</a>
+      <a href="knowledge.html" class="nav-link">知识卡片</a>
+    </div>
+  </nav>
+
+  <!-- Hero区域 -->
+  <section class="hero">
+    <h1 class="hero-title glitch" data-text="CyberNote">CyberNote</h1>
+    <p class="hero-subtitle">AI · 科技 · 社会学 · 心理学</p>
+    <p class="hero-desc">
+      一个赛博朋克风格的知识博客，记录AI技术解读、科技前沿、社会学观察与心理学实用技巧。
+      <br>成都本地视角，让知识落地生根。
+    </p>
+
+    <div class="hero-tags">
+      <span class="cyber-tag ai">AI 人工智能</span>
+      <span class="cyber-tag tech">科技前沿</span>
+      <span class="cyber-tag sociology">社会学观察</span>
+      <span class="cyber-tag psychology">心理学技巧</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#timeline" class="cyber-btn">探索时间线</a>
+      <a href="knowledge.html" class="cyber-btn cyber-btn-pink">知识卡片</a>
+    </div>
+  </section>
+
+  <!-- 分类导航 -->
+  <div class="category-nav" id="categoryNav">
+    <button class="category-btn active" data-category="all">全部文章</button>
+    <button class="category-btn" data-category="ai">AI人工智能</button>
+    <button class="category-btn" data-category="tech">科技前沿</button>
+    <button class="category-btn" data-category="sociology">社会学观察</button>
+    <button class="category-btn" data-category="psychology">心理学技巧</button>
+  </div>
+
+  <!-- 时间线作品集 -->
+  <section class="timeline-section" id="timeline">
+    <div class="timeline-header">
+      <h2 class="neon-text">时间线作品集</h2>
+      <p style="color: var(--text-secondary);">按时间倒序展示创作历程</p>
+    </div>
+
+    <div class="timeline-container" id="timelineContainer">
+      <!-- 文章将通过JS动态加载 -->
+      <div class="loading" id="loading">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI知识卡片预览 -->
+  <section class="knowledge-section">
+    <div class="knowledge-header">
+      <h2 class="neon-text-pink">AI知识卡片</h2>
+      <p style="color: var(--text-secondary);">技术术语通俗解读 · 点击翻转查看详解</p>
+    </div>
+
+    <div class="knowledge-grid">
+      <div class="knowledge-card">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front">
+            <div class="knowledge-icon">🤖</div>
+            <div class="knowledge-title">LLM 大语言模型</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              Large Language Model，像ChatGPT这样的AI，能理解和生成人类语言。
+              把它想象成一个读过亿万本书的"超级阅读者"，能回答问题、写文章、甚至写代码。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front">
+            <div class="knowledge-icon">🎯</div>
+            <div class="knowledge-title">Fine-tuning 微调</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              就像给AI"上专业课"，在通用能力基础上，针对特定领域（如医疗、法律）进行额外训练，
+              让它在该领域表现更专业。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front">
+            <div class="knowledge-icon">⚡</div>
+            <div class="knowledge-title">RAG 检索增强生成</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              Retrieval-Augmented Generation，AI先去"查资料"，再回答问题。
+              像考试时允许翻书，答案更准确、更有依据。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="knowledge-card">
+        <div class="knowledge-card-inner">
+          <div class="knowledge-card-front">
+            <div class="knowledge-icon">🧠</div>
+            <div class="knowledge-title">Transformer架构</div>
+          </div>
+          <div class="knowledge-card-back">
+            <p class="knowledge-desc">
+              AI模型的核心"大脑结构"，通过"注意力机制"理解上下文关系。
+              想象读书时，你能同时关注这句话和前面的关键词，Transformer就是这样"理解"文本的。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="knowledge.html" class="cyber-btn cyber-btn-pink">查看全部知识卡片</a>
+    </div>
+  </section>
+
+  <!-- 成都本地专栏预览 -->
+  <section class="chengdu-section">
+    <div class="chengdu-header">
+      <h2 class="neon-text-pink">成都本地专栏</h2>
+      <p style="color: var(--text-secondary);">科技动态 · 社会观察 · 地域特色</p>
+    </div>
+
+    <div class="chengdu-grid">
+      <div class="chengdu-card">
+        <div class="chengdu-card-icon">🏢</div>
+        <h3>成都AI企业观察</h3>
+        <p>成都科技园区AI企业落地案例，从游戏AI到医疗影像，探索AI在成都的多元应用场景。</p>
+      </div>
+
+      <div class="chengdu-card">
+        <div class="chengdu-card-icon">🏘️</div>
+        <h3>社区治理实践</h3>
+        <p>成都老旧小区改造、智慧社区建设观察，数字化治理在成都社区的落地经验。</p>
+      </div>
+
+      <div class="chengdu-card">
+        <div class="chengdu-card-icon">🍜</div>
+        <h3>消费习惯洞察</h3>
+        <p>成都人消费习惯背后的社会学分析，从火锅文化到网红经济，解读成都消费密码。</p>
+      </div>
+
+      <div class="chengdu-card">
+        <div class="chengdu-card-icon">🧘</div>
+        <h3>年轻人心理画像</h3>
+        <p>成都年轻人心理健康观察，从"躺平"到"巴适"，解读成都青年的心理状态。</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="chengdu.html" class="cyber-btn">进入成都专栏</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <span class="neon-text">CyberNote</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" class="footer-link">首页</a>
+      <a href="category.html?cat=ai" class="footer-link">AI专栏</a>
+      <a href="knowledge.html" class="footer-link">知识卡片</a>
+      <a href="chengdu.html" class="footer-link">成都专栏</a>
+    </div>
+    <p class="footer-copyright">
+      © 2024 CyberNote | 赛博朋克风格知识博客
+    </p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分类浏览 | CyberNote</title>
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <div class="cyber-grid"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo"><span class="glitch" data-text="CyberNote">CyberNote</span></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="category.html?cat=ai" class="nav-link">AI</a>
+      <a href="category.html?cat=tech" class="nav-link">科技</a>
+      <a href="category.html?cat=sociology" class="nav-link">社会学</a>
+      <a href="category.html?cat=psychology" class="nav-link">心理学</a>
+      <a href="chengdu.html" class="nav-link">成都专栏</a>
+      <a href="knowledge.html" class="nav-link">知识卡片</a>
+    </div>
+  </nav>
+
+  <section style="padding: 100px 40px 60px;">
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h1 class="neon-text" id="categoryTitle" style="font-family: 'Orbitron', sans-serif; font-size: 36px;">分类浏览</h1>
+      <p style="color: var(--text-secondary); font-size: 18px;" id="categoryDesc">选择分类查看相关文章</p>
+    </div>
+
+    <div class="articles-grid" id="articlesGrid">
+      <div class="loading">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo"><span class="neon-text">CyberNote</span></div>
+    <p class="footer-copyright">© 2024 CyberNote</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const category = CyberNote.getUrlParam('cat') || 'all';
+      const catConfig = CyberNote.categoryConfig[category];
+
+      if (catConfig) {
+        // 标题样式
+        const titleEl = document.getElementById('categoryTitle');
+        titleEl.textContent = `${catConfig.icon} ${catConfig.name}专栏`;
+        titleEl.className = category === 'sociology' || category === 'ai' ? 'neon-text-pink' :
+                            category === 'psychology' ? 'neon-text-green' : 'neon-text';
+
+        // 描述
+        const descEl = document.getElementById('categoryDesc');
+        const descMap = {
+          ai: '人工智能技术解读 · 大模型原理与应用',
+          tech: '科技前沿动态 · 成都本地科技观察',
+          sociology: '社会学观察 · 成都社会现象解读',
+          psychology: '心理学实用技巧 · 成都青年心理画像'
+        };
+        descEl.textContent = descMap[category] || '所有领域的文章合集';
+
+        // 高亮导航
+        document.querySelectorAll('.nav-link').forEach(link => {
+          if (link.href.includes(`cat=${category}`)) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      // 渲染文章
+      setTimeout(() => {
+        const articles = category === 'all' ?
+          CyberNote.articlesDB :
+          CyberNote.articlesDB.filter(a => a.category === category);
+
+        const container = document.getElementById('articlesGrid');
+        container.innerHTML = '';
+
+        articles.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(article => {
+          const catConfig = CyberNote.categoryConfig[article.category];
+          const cardColor = article.category === 'ai' ? 'purple' :
+                            article.category === 'sociology' ? 'pink' :
+                            article.category === 'psychology' ? 'green' : '';
+
+          container.innerHTML += `
+            <a href="post.html?id=${article.id}" class="article-card ${cardColor}" style="text-decoration:none; display:flex;">
+              <div class="article-meta">
+                <span class="cyber-tag ${article.category}">${catConfig.icon} ${catConfig.name}</span>
+                <span class="article-date">${CyberNote.formatDate(article.date)}</span>
+              </div>
+              <h3 class="article-title">${article.title}</h3>
+              <p class="article-excerpt">${article.excerpt}</p>
+              <div class="article-footer">
+                <span style="color: var(--neon-cyan); font-size: 12px;">阅读全文 →</span>
+              </div>
+            </a>
+          `;
+        });
+      }, 400);
+    });
+  </script>
+</body>
+</html>
